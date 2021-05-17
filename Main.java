@@ -1,43 +1,56 @@
-import com.sun.org.apache.xpath.internal.objects.XString;
+package Day6;
 
+import java.util.Random;
 import java.util.Scanner;
+
+import static Day6.Nguyento.nguyento;
 
 public class Main {
     public static void main(String[] args) {
-        //  String ten = "hà thị ninh";
-        //   String TEN = ten.toUpperCase();
-        //   int size = ten.length();
-        //   int vitri = ten.indexOf("i");
-        //   char kt7 = ten.charAt(7);
-        //   String catten = ten.substring(7);
 
-        //  System.out.println("Kích thước chuỗi: "+size);
-        //  System.out.println("Họ và tên : "+TEN);
-        //  System.out.println("Vị trí: "+vitri);
-        //  System.out.println("Ký tự số 7 : "+kt7);
-        //System.out.println("In tên : "+catten);
+        //In n số nguyên tố đầu tiên
+        System.out.print("Nhập số n : ");
+        int count = 0;
+        Scanner scanner = new Scanner(System.in);
+        int dem = scanner.nextInt();
 
-        double cannang = 56.5;
-        double chieucao = 1.61;
+        System.out.print(dem + " Số nguyên tố là : ");
+        for (int i = 2; i < 100; i++) {
+            if (nguyento(i) && count < dem) {
+                System.out.print(i + "\t");
+                count++;
+            }
+        }
 
-        CalBMI calBMI = new CalBMI();
-        calBMI.calculateBMI(cannang, chieucao);
+        // Số nguyên tố < 100
+        System.out.print("\nFor - Số nguyên tố là : ");
+        for (int i = 0; i < 100; i++) {
+            if (nguyento(i)) {
+                System.out.print(i + "\t");
+            }
+
+        }
 
 
-        Scanner sc = new Scanner(System.in);
-        Month month1 = new Month();
-        month1.showMonth(sc);
+        // Tính giai thừa
+        System.out.print("\n Tính giai thừa : ");
+        Scanner gthua = new Scanner(System.in);
+        int k = gthua.nextInt();
+        System.out.println(" Giai thừa " + k + " là " + Factorial.calculateFactorial(k));
 
-        Scanner sc2 = new Scanner(System.in);
-        month2 mon2 = new month2();
-        mon2.monthShow(sc2);
+        //Kiểm tra số ngẫu nhiên có phải nguyên tố hay ko?
+        Random rDom = new Random();
+        int int_random = rDom.nextInt(100);
+        System.out.println("Số radom là : " + int_random);
 
-        Scanner tri = new Scanner(System.in);
-        Triangle canh = new Triangle();
-        canh.Edge(tri);
+        boolean kq;
+        kq = Nguyento.nguyento(int_random);
+        if ( kq == true ) {
+            System.out.println(int_random + " là số nguyên tố");
+        } else {
+        System.out.println( int_random + " ko phải số nguyên tố");
+        }
 
 
     }
-
-    
 }
